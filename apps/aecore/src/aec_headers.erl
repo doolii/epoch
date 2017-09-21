@@ -87,6 +87,6 @@ deserialize_from_binary(B) ->
 %% the header.
 -spec hash_header(header()) -> {ok, block_header_hash()}.
 hash_header(H) ->
-    BinaryH = serialize_to_binary(H),
+    {ok, BinaryH} = serialize_to_binary(H),
     {ok, aec_sha256:hash(BinaryH)}.
 
